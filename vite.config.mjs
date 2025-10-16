@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/maskinovervakning-frontend/',  // 👈 legg inn repo-navnet her nøyaktig som på GitHub
+  base: '/maskinovervakning-frontend/', 
   build: {
     sourcemap: false
   }
