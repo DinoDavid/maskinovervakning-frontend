@@ -35,7 +35,7 @@ export default function Dashboard() {
           ))}
         </div>
       ) : (
-        <div className="text-gray-500">Ingen maskiner funnet for Ullevål.</div>
+        <div className="text-gray-500">Ingen maskiner funnet for Ullevål sykehus.</div>
       )}
     </section>
   )
