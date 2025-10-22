@@ -21,6 +21,13 @@ export default function Header({ isAuthenticated, setIsAuthenticated }){
         <div>
           <div className="text-sm font-semibold">Maskinovervåkning</div>
           <div className="text-xs text-gray-600 dark:text-gray-300">Dashboard</div>
+          <div className="flex flex-wrap gap-3 text-sm">
+            <span>🟢 Normal</span>
+            <span>⚫ Offline</span>
+            <span>🔴 Feil</span>
+            <span>🟠 Assistanse ønsket</span>
+            <span>🟡 Assistanse ikke nødvendig</span>
+        </div>
         </div>
       </div>
 
@@ -29,7 +36,7 @@ export default function Header({ isAuthenticated, setIsAuthenticated }){
           onClick={() => setDark(d => !d)}
           className="px-3 py-1 border rounded-md text-sm bg-gray-100 dark:bg-gray-700"
         >
-          Toggle dark
+          Darkmode
         </button>
         {isAuthenticated && (
           <button

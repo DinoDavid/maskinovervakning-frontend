@@ -1,55 +1,58 @@
-import { useEffect, useState, useRef } from 'react'
-import * as api from '../services/api'
+import { useState, useEffect } from 'react'
+import { getMachines, updateMachineStatus } from '../services/api'
 
-
-export default function useMachineStatus(pollInterval = 5000){
+export default function useMachineStatus(interval = 5000) {
   const [machines, setMachines] = useState([])
-  const mounted = useRef(false)
+  const [serviceTimestamp, setServiceTimestamp] = useState(null)
 
-  useEffect(()=>{
-    mounted.current = true
-    let interval
+  useEffect(() => {
+    getMachines().then(setMachines)
 
-    async function fetchData(){
-      try {
-        const res = await api.getMachines()
-        let data = res
-        if (res && typeof res === 'object' && Array.isArray(res.data)) data = res.data
-        if (!Array.isArray(data)) {
-          console.error('useMachineStatus: getMachines returned unexpected value:', res)
-          data = []
+    const timer = setInterval(() => {
+      getMachines().then(setMachines)
+    }, interval)
+
+    return () => clearInterval(timer)
+  }, [interval])
+
+  const toggleService = (id) => {
+    setMachines(prev =>
+      prev.map(m => {
+        if (m.id !== id) return m
+
+        // definér statusrekkefølgen
+        const order = ['green', 'red', 'orange', 'yellow', 'gray']
+        const nextStatus = order[(order.indexOf(m.status) + 1) % order.length]
+        const timestamp = new Date().toLocaleTimeString('no-NO', { hour: '2-digit', minute: '2-digit', hour12: false })
+
+        let newTimestamp = m.timestamp
+
+        // hvis status blir rød (ny feil) → lagre felles tidsstempel
+        if (nextStatus === 'red') {
+          setServiceTimestamp(timestamp)
+          newTimestamp = timestamp
         }
-        if (mounted.current) setMachines(data)
-      } catch (err) {
-        console.error('useMachineStatus: fetch error', err)
-        if (mounted.current) setMachines([])
-      }
-    }
 
-    fetchData()
-    interval = setInterval(fetchData, pollInterval)
+        // hvis status er oransje eller gul → bruk felles timestamp
+        if (nextStatus === 'orange' || nextStatus === 'yellow') {
+          newTimestamp = serviceTimestamp
+        }
 
-    return () => { mounted.current = false; clearInterval(interval) }
-  },[pollInterval])
+        // hvis offline → vis eget tidspunkt
+        if (nextStatus === 'gray') {
+          newTimestamp = timestamp
+        }
 
-  async function toggleService(id){
-    try {
-      const m = machines.find(x => x.id === id)
-      if(!m) return
-      const newStatus = m.status === 'red' ? 'green' : 'red'
-      const res = await api.updateMachineStatus(id, newStatus)
-      let updated = res
-      if (res && typeof res === 'object' && res.data) updated = res.data
-      if (!updated || !updated.id) {
-        // fallback: optimistically update local state
-        setMachines(prev => prev.map(x => x.id === id ? { ...x, status: newStatus } : x))
-        return
-      }
-      setMachines(prev => prev.map(x => x.id === id ? updated : x))
-    } catch (err) {
-      console.error('useMachineStatus: toggleService error', err)
-    }
+        // hvis tilbake til grønn → nullstill
+        if (nextStatus === 'green') {
+          newTimestamp = null
+        }
+
+        updateMachineStatus(id, nextStatus)
+        return { ...m, status: nextStatus, timestamp: newTimestamp }
+      })
+    )
   }
 
-  return { machines, toggleService, setMachines }
+  return { machines, toggleService }
 }

@@ -2,32 +2,29 @@
 
 // declare/initialize the internal machines store
 let machines = [
-  { id: 'm5', name: 'SB 5', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
-  { id: 'm6', name: 'SB 6', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
-  { id: 'm8', name: 'SB 8', status: 'green',   lastSeen: Date.now(), serviceTimestamp: null },
-  { id: 'm9', name: 'SB 9', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
-  { id: 'm10', name: 'SB 10', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
-  { id: 'm12', name: 'SB 12', status: 'green',   lastSeen: Date.now(), serviceTimestamp: null },
-  { id: 'm13', name: 'SB 13', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
-  { id: 'm14', name: 'SB 14', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
-  { id: 'm15', name: 'SB 15', status: 'green',   lastSeen: Date.now(), serviceTimestamp: null },
-  { id: 'm16', name: 'SB 16', status: 'green',   lastSeen: Date.now(), serviceTimestamp: null }
+  // Radium
+  { id: 'r1', name: 'SB 2', hospital: 'Radium', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
+  { id: 'r2', name: 'SB 5', hospital: 'Radium', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
+  { id: 'r3', name: 'SB 6', hospital: 'Radium', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
+  { id: 'r4', name: 'SB 7', hospital: 'Radium', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
+  { id: 'r5', name: 'SB 8', hospital: 'Radium', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
+  { id: 'r6', name: 'SB 9', hospital: 'Radium', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
+  { id: 'r7', name: 'SB 10', hospital: 'Radium', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
+  { id: 'r8', name: 'SB 12', hospital: 'Radium', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
+  { id: 'r9', name: 'SB 13', hospital: 'Radium', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
+  { id: 'r10', name: 'SB 14', hospital: 'Radium', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
+  { id: 'r11', name: 'SB 15', hospital: 'Radium', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
+  { id: 'r12', name: 'SB 16', hospital: 'Radium', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
+
+  // Ullevål 
+  { id: 'u1', name: 'U1', hospital: 'Ullevål', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
+  { id: 'u2', name: 'U2', hospital: 'Ullevål', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
+  { id: 'u3', name: 'U3', hospital: 'Ullevål', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
+  { id: 'u4', name: 'U4', hospital: 'Ullevål', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
+  { id: 'u5', name: 'U5', hospital: 'Ullevål', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
+  { id: 'u6', name: 'U6', hospital: 'Ullevål', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
+  { id: 'u7', name: 'U7', hospital: 'Ullevål', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
 ]
-
-// Utility to randomly change some statuses (simulate connection loss)
-function randomize(){
-  machines = machines.map(m => {
-    // small chance to become gray (lost connection)
-    if (Math.random() < 0.05) return { ...m, status: 'gray', lastSeen: Date.now() - (1000*60*10) }
-    return m
-  })
-}
-
-
-// Polling/interval to simulate environment changes
-setInterval(() => {
-  try { randomize() } catch (e) { console.error('api.randomize error', e) }
-}, 15000)
 
 
 export async function getMachines(){

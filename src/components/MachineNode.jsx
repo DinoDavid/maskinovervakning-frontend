@@ -4,7 +4,9 @@ import { motion } from 'framer-motion'
 const STATUS = {
   green: { label: 'AKTIV', bgClass: 'bg-green-500', hoverClass: 'hover:bg-green-600' },
   gray:  { label: 'OFFLINE',  bgClass: 'bg-gray-500',  hoverClass: 'hover:bg-gray-600' },
-  red:   { label: 'SERVICE', bgClass: 'bg-red-500', hoverClass: 'hover:bg-red-600' }
+  red:   { label: 'SERVICE', bgClass: 'bg-red-500', hoverClass: 'hover:bg-red-600' },
+  orange:  { label: 'ASSISTANCE',  bgClass: 'bg-orange-500',  hoverClass: 'hover:bg-orange-600' },
+  yellow:   { label: 'NO ASSISTANCE', bgClass: 'bg-yellow-500', hoverClass: 'hover:bg-yellow-600' }
 }
 
 export default function MachineNode({ machine, onToggleService }){
@@ -22,7 +24,7 @@ export default function MachineNode({ machine, onToggleService }){
       <div className="font-semibold text-lg">{machine.name}</div>
       <div className="text-sm">{s.label}</div>
       {machine.serviceTimestamp && (
-        <div className="text-xs text-white/90">Service: {new Date(machine.serviceTimestamp).toLocaleTimeString()}</div>
+        <div className="text-xs text-white/90">🕒Service: {new Date(machine.serviceTimestamp).toLocaleTimeString('no-NO', { hour: '2-digit', minute: '2-digit', hour12: false})}</div>
       )}
     </motion.button>
   )
