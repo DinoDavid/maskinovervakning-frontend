@@ -15,9 +15,10 @@ export default function Dashboard() {
     <section>
       <StaffPanel />
       {/* RADIUM */}
-      <h1 className="text-2xl font-bold mb-4">Radiumhospitalet</h1>
+      <h1 className="text-2xl font-bold mb-4">🏥Radiumhospitalet</h1>
       {radiumMachines.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 lg:gap-16 xl:gap-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 lg:gap-20 xl:gap-20 justify-center">
+
           {radiumMachines.map(m => (
             <MachineNode key={m.id} machine={m} onToggleService={toggleService} />
           ))}
@@ -27,9 +28,10 @@ export default function Dashboard() {
       )}
 
       {/* ULLEVÅL */}
-      <h1 className="text-2xl font-bold mt-10 mb-4">Ullevål sykehus</h1>
+      <h1 className="text-2xl font-bold mt-10 mb-4">🏥Ullevål sykehus</h1>
       {ullevalMachines.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 lg:gap-16 xl:gap-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 lg:gap-20 xl:gap-20 justify-center">
+
           {ullevalMachines.map(m => (
             <MachineNode key={m.id} machine={m} onToggleService={toggleService} />
           ))}
