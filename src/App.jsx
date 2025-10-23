@@ -15,7 +15,7 @@ export default function App(){
   },[isAuthenticated])
 
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter basename="/maskinovervakning-frontend/">
       <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 body-tv transition-colors">
         <Header isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />
         <main className="p-4">
