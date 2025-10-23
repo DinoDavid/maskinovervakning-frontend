@@ -2,7 +2,7 @@
   "name": "maskinovervakning-frontend",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://dinodavid.github.io/maskinovervakning-frontend/",
+  "homepage": "https://dinodavid.github.io/maskinovervakning-frontend",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
