@@ -40,7 +40,7 @@ export default function Dashboard() {
       )}
 
       <p className="text-sm text-gray-500 mt-5">
-            🟢 Normal ⚫ Offline 🔴 Feil 🟠 Assistanse ønsket 🟡 Assistanse ikke nødvendig
+        🟢 Normal ⚫ Offline 🔴 Feil 🟠 Assistanse ønsket 🟡 Assistanse ikke nødvendig
       </p>
 
 
