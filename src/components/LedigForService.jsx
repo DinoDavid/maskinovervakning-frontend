@@ -173,8 +173,8 @@ export default function LedigForService({ isOpen, onClose }) {
                   // reset (valgfritt)
                   setDays({ Mandag: [], Tirsdag: [], Onsdag: [], Torsdag: [], Fredag: [] });
                   setAvailableNames([
-                    "Dawid","Torje","Olav","Said","BjørnR",
-                    "Rob","Martin","Stian","BjørnU","Haakon","Rahu"
+                    "Dawid","Olav","Said","BjørnR",
+                    "Rob","Martin","Stian","BjørnU","Rahu"
                   ]);
                 }}
                 className="px-4 py-2 rounded-lg bg-gray-100 text-gray-800 hover:bg-gray-200"
