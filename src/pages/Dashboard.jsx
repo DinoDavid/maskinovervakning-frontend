@@ -39,6 +39,11 @@ export default function Dashboard() {
         <div className="text-gray-500">Ingen maskiner funnet for Ullevål sykehus.</div>
       )}
 
+      <p className="text-sm text-gray-500 mt-5">
+            🟢 Normal ⚫ Offline 🔴 Feil 🟠 Assistanse ønsket 🟡 Assistanse ikke nødvendig
+      </p>
+
+
       <DashboardControls isDashboardMode={true} />
     </section>
   )

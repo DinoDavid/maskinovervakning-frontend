@@ -27,11 +27,6 @@ const location = useLocation()
           <div className="text-sm font-semibold">Maskinovervåkning</div>
           <div className="text-xs text-gray-600 dark:text-gray-300">Dashboard</div>
           <div className="flex flex-wrap gap-3 text-sm">
-            <span>🟢 Normal</span>
-            <span>⚫ Offline</span>
-            <span>🔴 Feil</span>
-            <span>🟠 Assistanse ønsket</span>
-            <span>🟡 Assistanse ikke nødvendig</span>
         </div>
         </div>
       </div>
