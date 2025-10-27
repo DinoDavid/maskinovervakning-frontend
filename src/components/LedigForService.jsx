@@ -107,7 +107,7 @@ export default function LedigForService({ isOpen, onClose }) {
             {/* Header */}
             <div className="px-6 pt-6 pb-4 border-b border-gray-200 dark:border-gray-800">
               <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 text-center">
-                Ledig for service — Uke {weekNumber}
+                Ledig for service/overtid — Uke {weekNumber}
               </h2>
               <p className="text-sm text-gray-500 dark:text-gray-400 text-center mt-1">
                 Dra en ansatt fra toppen og slipp i ønsket ukedag. Trykk ✕ for å fjerne.
