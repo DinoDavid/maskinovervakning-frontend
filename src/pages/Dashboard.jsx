@@ -2,7 +2,7 @@ import React from 'react'
 import useMachineStatus from '../hooks/useMachineStatus'
 import MachineNode from '../components/MachineNode'
 import StaffPanel from '../components/StaffPanel'
-
+import { DashboardControls } from "../components/DashboardControls";
 
 export default function Dashboard() {
   const { machines, toggleService } = useMachineStatus(5000)
@@ -14,11 +14,11 @@ export default function Dashboard() {
   return (
     <section>
       <StaffPanel />
-      {/* RADIUM */}
-      <h1 className="text-2xl font-bold mb-4">🏥Radiumhospitalet</h1>
-      {radiumMachines.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 lg:gap-20 xl:gap-20 justify-center">
 
+      {/* RADIUM */}
+      <h1 className="text-2xl font-bold mb-4">🏥 Radiumhospitalet</h1>
+      {radiumMachines.length > 0 ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 lg:gap-20 xl:gap-20 justify-center">
           {radiumMachines.map(m => (
             <MachineNode key={m.id} machine={m} onToggleService={toggleService} />
           ))}
@@ -28,10 +28,9 @@ export default function Dashboard() {
       )}
 
       {/* ULLEVÅL */}
-      <h1 className="text-2xl font-bold mt-10 mb-4">🏥Ullevål sykehus</h1>
+      <h1 className="text-2xl font-bold mt-10 mb-4">🏥 Ullevål sykehus</h1>
       {ullevalMachines.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 lg:gap-20 xl:gap-20 justify-center">
-
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 lg:gap-20 xl:gap-20 justify-center">
           {ullevalMachines.map(m => (
             <MachineNode key={m.id} machine={m} onToggleService={toggleService} />
           ))}
@@ -39,6 +38,8 @@ export default function Dashboard() {
       ) : (
         <div className="text-gray-500">Ingen maskiner funnet for Ullevål sykehus.</div>
       )}
+
+      <DashboardControls isDashboardMode={true} />
     </section>
   )
 }

@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 
-export default function Header({ isAuthenticated, setIsAuthenticated }){
-  const [dark, setDark] = useState(() => localStorage.getItem('theme') === 'dark')
+
+
+export default function Header({ isAuthenticated, setIsAuthenticated, isDashboardMode}) {
+const [dark, setDark] = useState(() => localStorage.getItem('theme') === 'dark')
+const location = useLocation()
+
 
   useEffect(() => {
     const root = document.documentElement
@@ -30,7 +35,6 @@ export default function Header({ isAuthenticated, setIsAuthenticated }){
         </div>
         </div>
       </div>
-
       <div className="flex items-center gap-3">
         <button
           onClick={() => setDark(d => !d)}
@@ -48,3 +52,4 @@ export default function Header({ isAuthenticated, setIsAuthenticated }){
     </header>
   )
 }
+

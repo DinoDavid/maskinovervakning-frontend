@@ -17,11 +17,12 @@ let machines = [
   { id: 'r12', name: 'SB 16', hospital: 'Radium', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
 
   // Ullevål 
-  { id: 'u1', name: 'SB 2', hospital: 'Ullevål', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
-  { id: 'u2', name: 'SB 3', hospital: 'Ullevål', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
-  { id: 'u3', name: 'SB 4', hospital: 'Ullevål', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
-  { id: 'u4', name: 'SB 6', hospital: 'Ullevål', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
-  { id: 'u5', name: 'SB 7', hospital: 'Ullevål', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
+  { id: 'u1', name: 'SB 1', hospital: 'Ullevål', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
+  { id: 'u2', name: 'SB 2', hospital: 'Ullevål', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
+  { id: 'u3', name: 'SB 3', hospital: 'Ullevål', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
+  { id: 'u4', name: 'SB 4', hospital: 'Ullevål', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
+  { id: 'u5', name: 'SB 6', hospital: 'Ullevål', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
+  { id: 'u6', name: 'SB 7', hospital: 'Ullevål', status: 'green', lastSeen: Date.now(), serviceTimestamp: null },
 ]
 
 
