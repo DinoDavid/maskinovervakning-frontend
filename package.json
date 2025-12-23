@@ -1,13 +1,12 @@
 {
   "name": "maskinovervakning-frontend",
   "version": "1.0.0",
-  "private": true,
-  "homepage": "https://dinodavid.github.io/maskinovervakning-frontend",
+  "private": false,
+  "homepage": "https://dinodavid.github.io/maskinovervakning-frontend/",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
     "framer-motion": "^10.18.0",
