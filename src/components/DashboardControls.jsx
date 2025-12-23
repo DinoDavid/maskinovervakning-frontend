@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaWater, FaGlobeAfrica, FaPause } from "react-icons/fa";
+import { FaGlobeAfrica, FaPause } from "react-icons/fa";
 import { FaCalendarAlt } from "react-icons/fa";
+import { GiRooster } from "react-icons/gi";
 import LedigForService from "./LedigForService";
 
 const BackgroundVideo = ({ videoUrl, active }) => {
@@ -76,7 +77,7 @@ export const DashboardControls = ({ isDashboardMode }) => {
         {oceanActive && (
           <BackgroundVideo
             key="ocean"
-            videoUrl="https://www.youtube.com/embed/Thtj8Ht7Z_c?autoplay=1&mute=1&controls=0&loop=1&playlist=Thtj8Ht7Z_c&modestbranding=1&showinfo=0"
+            videoUrl="https://www.youtube.com/embed/ka04MQWMlI8?autoplay=1&mute=1&controls=0&loop=1&playlist=ka04MQWMlI8&modestbranding=1&showinfo=0"
             active={oceanActive}
           />
         )}
@@ -107,7 +108,7 @@ export const DashboardControls = ({ isDashboardMode }) => {
               animate={{ rotate: oceanActive ? 360 : 0 }}
               transition={{ duration: 0.8 }}
             >
-              {oceanActive ? <FaPause size={20} /> : <FaWater size={20} />}
+              {oceanActive ? <FaPause size={20} /> : <GiRooster size={20} />}
             </motion.div>
           </motion.button>
 
